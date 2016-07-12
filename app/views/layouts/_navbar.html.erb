@@ -11,6 +11,7 @@
       <li>
         <% if current_user %>
           Hello, <%= current_user.name.split(" ").first %>
+          <%= link_to "Logout", logout_path, method: :delete %>
           <% else %>
           <%= link_to "Log in with Github", github_login_path %>
           <% end %>
