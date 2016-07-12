@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712195617) do
+ActiveRecord::Schema.define(version: 20160712210851) do
 
   create_table "users", force: :cascade do |t|
     t.string "nickname"
     t.string "uid"
     t.string "oauth_token"
     t.string "name"
+    t.string "avatar_url"
   end
 
 end
