@@ -29,3 +29,9 @@
   </ul>
   <% end %>
 <br>
+<h3>Organizations (<%= @user.organizations.count %>):</h3>
+<% @user.organizations.each do |org| %>
+  <ul>
+    <li> <%= org["name"] %> </li>
+  </ul>
+  <% end %>

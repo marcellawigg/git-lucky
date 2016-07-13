@@ -28,6 +28,12 @@ class UserServices
     parse(response)
   end
 
+  def organizations
+    connection.headers["Authorization"] = "Token #{user.oauth_token}"
+    response = connection.get("/users/#{user.nickname}/orgs")
+    parse(response)
+  end
+
   def parse(response)
     JSON.parse(response.body)
   end

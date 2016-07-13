@@ -9,10 +9,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def self.service(user)
-  #   UserServices.new(user)
-  # end
-
   def followers
     UserServices.new(self).followers
   end
@@ -27,5 +23,9 @@ class User < ActiveRecord::Base
 
   def all_repositories
     UserServices.new(self).all_repositories
+  end
+
+  def organizations
+    UserServices.new(self).organizations
   end
 end
