@@ -1,2 +1,31 @@
 <%= image_tag(@user.avatar_url) %>
 <h1><%= @user.name %></h1>
+<br>
+<h3>All repositories (<%= @user.all_repositories.count %>): </h3>
+<% @user.all_repositories.each do |repo| %>
+<ul>
+  <li> <%= repo["full_name"] %> </li>
+</ul>
+<% end %>
+<br>
+<h3>Starred repositories (<%= @user.starred_repositories.count %>):</h3>
+<% @user.starred_repositories.each do |repo| %>
+<ul>
+  <li><%= repo["full_name"] %></li>
+</ul>
+<% end %>
+<br>
+<h3>Your followers (<%= @user.followers.count %>):</h3>
+<% @user.followers.each do |follower| %>
+  <ul>
+    <li> <%= follower["login"] %> </li>
+  </ul>
+  <% end %>
+<br>
+<h3>You're following (<%= @user.following.count %>):</h3>
+<% @user.following.each do |following| %>
+  <ul>
+    <li> <%= following["login"] %> </li>
+  </ul>
+  <% end %>
+<br>
