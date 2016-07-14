@@ -1,0 +1,18 @@
+<h1>Repositories for <%= current_user.name %></h1>
+<h3>Starred Repositories (<%= @starred_repositories.count %>)</h3>
+<% @starred_repositories.map do |repo| %>
+<ul>
+  <li>
+  <strong>Repository Name:</strong> <%= repo.name %>
+  </li>
+</ul>
+<% end %>
+
+<h3>All Repositories (<%= @all_repositories.count%>) </h3>
+<% @all_repositories.map do |repo| %>
+<ul>
+  <li>
+  <strong>Repository Name:</strong> <%= repo.name %>
+  </li>
+</ul>
+<% end %>

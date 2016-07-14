@@ -40,6 +40,12 @@ class UserServices
     parse(response)
   end
 
+  def received_activity
+    connection.headers["Authorization"] = "Token #{user.oauth_token}"
+    response = connection.get("/users/#{user.nickname}/received_events")
+    parse(response)
+  end
+
   def parse(response)
     JSON.parse(response.body)
   end

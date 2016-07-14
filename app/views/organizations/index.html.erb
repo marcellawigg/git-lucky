@@ -1,0 +1,8 @@
+<h1>Organizations for <%= current_user.name %> (<%=@organizations.count%>)</h1>
+<% @organizations.map do |org| %>
+<ul>
+  <li>
+  <strong>Organization Name:</strong> <%= org.name %>
+  </li>
+</ul>
+<% end %>
