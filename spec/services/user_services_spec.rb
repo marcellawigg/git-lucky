@@ -40,7 +40,7 @@ describe UserServices(User.first) do
   end
 
   it "returns recent activity for a user" do
-    VCR.user_cassette("user_services#recent_activity") do
+    VCR.use_cassette("user_services#recent_activity") do
       activity = UserServices.new(User.first).recent_activity
       expect(activity.first["repo"]["name"]).to eq("marcellawigg/git-lucky")
       expect(activity.first["payload"]["commits"].first["message"]).to eq("Added bootstrap so not quite as ugly")
@@ -48,8 +48,10 @@ describe UserServices(User.first) do
   end
 
   it "returns all received activity for a user" do
-    VCR.user_cassette("user_services#received_activity") do
+    VCR.use_cassette("user_services#received_activity") do
       activity = UserServices.new(User.first).received_activity
       expect(activity.first["repo"]["name"]).to eq("nickpisciotta/whats_around")
       expect(activity.first["actor"]["login"]).to eq("nickpisciotta")
+    end
+  end
 end
