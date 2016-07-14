@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
   def recent_activity
     UserServices.new(self).recent_activity
   end
+
+  def received_activity
+    UserServices.new(self).received_activity
+  end
 end
