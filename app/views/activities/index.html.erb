@@ -1,10 +1,23 @@
-<h3>Recent activity</h3>w
+<h3>Recent activity for <%= current_user.name %> </h3>
 <% @activities.map do |activity| %>
 <ul>
   <li>
   <strong>Repository Name:</strong> <%= activity.repo_name %>
   <br><strong>Commit Message:</strong> <%= activity.message %>
   <br><strong>Created Date:</strong> <%= activity.created_at %>
+</li>
+</ul>
+<% end %>
+<h3>Received activity for <%= current_user.name %> </h3>
+<% @received_activities.map do |activity| %>
+<ul>
+  <li>
+  <strong>Repository Name:</strong> <%= activity.repo_name %>
+  <br><strong>Commit Message:</strong> <%= activity.message %>
+  <br><strong>Created Date:</strong> <%= activity.created_at %>
+  <br><% if activity.nickname != current_user.nickname %>
+  <strong>User:</strong> <%= activity.nickname %>
+  <% end %>
 </li>
 </ul>
 <% end %>
