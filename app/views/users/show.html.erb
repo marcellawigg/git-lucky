@@ -1,20 +1,14 @@
 <%= image_tag(@user.avatar_url) %>
 <h1><%= @user.name %></h1>
 <br>
-<h3>All repositories (<%= @user.all_repositories.count %>): </h3>
-<% @user.all_repositories.each do |repo| %>
-<ul>
-  <li> <%= repo["full_name"] %> </li>
-</ul>
-<% end %>
+<h3>All repositories: </h3>
+<%= link_to "View all repositories", user_repositories_path(@user) %>
+
 <br>
-<h3>Starred repositories (<%= @user.starred_repositories.count %>):</h3>
-<% @user.starred_repositories.each do |repo| %>
-<ul>
-  <li><%= repo["full_name"] %></li>
-</ul>
-<% end %>
+<h3>Starred repositories:</h3>
+<%= link_to "View starred repositories", user_repositories_path(@user) %>
 <br>
+
 <h3>Your followers (<%= @user.followers.count %>):</h3>
 <% @user.followers.each do |follower| %>
   <ul>
@@ -34,9 +28,5 @@
   </ul>
   <% end %>
 <br>
-<h3>Organizations (<%= @user.organizations.count %>):</h3>
-<% @user.organizations.each do |org| %>
-  <ul>
-    <li> <%= org["name"] %> </li>
-  </ul>
-  <% end %>
+<h3>Organizations</h3>
+<%= link_to "View all organizations", user_organizations_path(@user) %>
