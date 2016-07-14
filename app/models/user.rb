@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
   def organizations
     UserServices.new(self).organizations
   end
+
+  def recent_activity
+    UserServices.new(self).recent_activity
+  end
 end
