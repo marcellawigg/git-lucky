@@ -22,6 +22,11 @@
   </ul>
   <% end %>
 <br>
+
+<h3>Recent activity</h3>
+<%= link_to "View user activity", user_activities_path(@user) %>
+
+
 <h3>You're following (<%= @user.following.count %>):</h3>
 <% @user.following.each do |following| %>
   <ul>

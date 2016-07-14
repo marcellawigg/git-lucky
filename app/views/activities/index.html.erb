@@ -1,0 +1,10 @@
+<h3>Recent activity</h3>
+<% @activities.map do |activity| %>
+<ul>
+  <li>
+  <strong>Repository Name:</strong> <%= activity.repo_name %>
+  <br><strong>Commit Message:</strong> <%= activity.message %>
+  <br><strong>Created Date:</strong> <%= activity.created_at %>
+</li>
+</ul>
+<% end %>
